@@ -41,6 +41,7 @@ angular.module('minimalSlider', [])
 			},
 			template: '<div class="minimal-slider"><div class="minimal-slider-thumb"></div></div>',
 			link: function(scope, elem, attr, ctrl){
+				setPosition(scope, elem);
 				angular.element($window).on('resize', function(){
 					setPosition(scope, elem);
 				});
