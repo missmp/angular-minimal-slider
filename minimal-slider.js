@@ -60,8 +60,10 @@ angular.module('minimalSlider', [])
 				});
 				$document.on('touchend touchcancel mouseup', function(event){
 					$document.off('touchmove mousemove');
-					scope.dragend();
 				});				
+				elem.on('touchend touchcancel mouseup', function(event) {
+					scope.dragend();
+				})
 			}
 		}
 	});
