@@ -51,19 +51,22 @@ angular.module('minimalSlider', [])
 						event.preventDefault();
 						setRatioAndPosition(scope, elem, event.originalEvent.changedTouches[0].pageX);
 					});
+					$document.on('touchend touchcancel mouseup', function(event) {
+						scope.dragend();
+					})
 				});
 				elem.on('mousedown', function(event){
 					setRatioAndPosition(scope, elem, event.pageX);
 					$document.on('mousemove', function(event){
 						setRatioAndPosition(scope, elem, event.pageX);
 					});
+					$document.on('touchend touchcancel mouseup', function(event) {
+						scope.dragend();
+					})
 				});
 				$document.on('touchend touchcancel mouseup', function(event){
 					$document.off('touchmove mousemove');
 				});				
-				elem.on('touchend touchcancel mouseup', function(event) {
-					scope.dragend();
-				})
 			}
 		}
 	});
