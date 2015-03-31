@@ -1,5 +1,5 @@
 angular.module('minimalSlider', [])
-	.directive('minimalSlider', function($document, $window){
+	.directive('minimalSlider', ['$document', '$window', function($document, $window){
 
 		var setRatio = function(scope, elem, eventX){
 			var slider = angular.element(elem.children()[0]);
@@ -69,4 +69,4 @@ angular.module('minimalSlider', [])
 				});				
 			}
 		}
-	});
+	}]);
